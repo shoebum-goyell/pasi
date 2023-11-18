@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pasi/resources/styles.dart';
 import 'package:pasi/screens/analysis_screen.dart';
 import 'package:pasi/screens/homescreen.dart';
 
@@ -21,7 +22,7 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Know More"),
+        title: Text("Know More", style: kFontAppBar,),
         backgroundColor: kColorPrimary,
       ),
       bottomNavigationBar:
@@ -93,18 +94,18 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                   ),
                   child: Column(
                     children: [
-                      Text("Redness of erythema (0-4)", style: TextStyle(fontSize: 20),),
+                      Text("Redness of erythema (0-4)", style: kFontParameterTitle,),
                       SizedBox(height: 10,),
                       Text("The redness of erythema refers to the intensity of red patches on the skin, with a scale ranging from 0 (no redness) to 4 (intense redness). A higher score indicates more severe inflammation and contributes to the overall assessment of psoriasis severity.",
-                        style: TextStyle(fontSize: 14),),
-
+                        style: kFontParameterDescription,),
+                      SizedBox(height: 10,),
                       Stack(
                         children: [
                           Image.asset('assets/metermax.png', height: 45,),
                           Positioned(
                               top:15,
                               left: 35,
-                              child: Text("3.5", style: TextStyle(fontSize: 15),)),
+                              child: Text("3.5", style: kFontScaleSmall,)),
                         ],
                       ),
                     ],
@@ -123,10 +124,10 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                     ),
                     child: Column(
                       children: [
-                        Text("Thickness of induration (0-4)", style: TextStyle(fontSize: 20),),
+                        Text("Thickness of induration (0-4)", style: kFontParameterTitle,),
                         SizedBox(height: 10,),
                         Text("Induration measures the thickness of plaques or lesions on the skin, ranging from 0 (no thickness) to 4 (severe thickness). A greater thickness score signifies more extensive and pronounced psoriatic lesions, offering insight into the disease's impact on skin texture and structure.",
-                          style: TextStyle(fontSize: 14),),
+                          style: kFontParameterDescription,),
                         SizedBox(height: 10,),
                         Stack(
                           children: [
@@ -134,7 +135,7 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                             Positioned(
                                 top:15,
                                 left: 35,
-                                child: Text("1.3", style: TextStyle(fontSize: 15),)),
+                                child: Text("1.3", style: kFontScaleSmall,)),
                           ],
                         ),
                       ],
@@ -153,10 +154,10 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                     ),
                     child: Column(
                       children: [
-                        Text("Scaling of desquamation (0-4)", style: TextStyle(fontSize: 20),),
+                        Text("Scaling of desquamation (0-4)", style: kFontParameterTitle,),
                         SizedBox(height: 10,),
                         Text("Desquamation assesses the extent of flaking or scaling of the skin, with a scale from 0 (no scaling) to 4 (intense scaling). Increased scaling indicates a higher level of skin shedding, highlighting the severity of the psoriatic condition and its impact on the skin's surface.",
-                          style: TextStyle(fontSize: 14),),
+                          style: kFontParameterDescription,),
                         SizedBox(height: 10,),
                         Stack(
                           children: [
@@ -164,7 +165,7 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                             Positioned(
                                 top:15,
                                 left: 35,
-                                child: Text("3.7", style: TextStyle(fontSize: 15),)),
+                                child: Text("3.7", style: kFontScaleSmall,)),
                           ],
                         ),
                       ],
@@ -183,10 +184,10 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                     ),
                     child: Column(
                       children: [
-                        Text("Area Ratio (0-6)", style: TextStyle(fontSize: 20),),
+                        Text("Area Ratio (0-6)", style: kFontParameterTitle,),
                         SizedBox(height: 10,),
                         Text("The area ratio accounts for the percentage of affected body surface area, ranging from 0 (no involvement) to 6 (extensive involvement). A higher score reflects a larger affected area, providing a comprehensive measure of the overall disease burden on the skin.",
-                          style: TextStyle(fontSize: 14),),
+                          style: kFontParameterDescription,),
                         SizedBox(height: 10,),
                         Stack(
                           children: [
@@ -194,7 +195,7 @@ class _KnowMoreScreenState extends State<KnowMoreScreen> {
                             Positioned(
                                 top:15,
                                 left: 35,
-                                child: Text("0.7", style: TextStyle(fontSize: 15),)),
+                                child: Text("0.7", style: kFontScaleSmall)),
                           ],
                         ),
                       ],

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pasi/resources/styles.dart';
 import 'package:pasi/screens/analysis_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -107,11 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.topCenter,
                   child: Text(
                     'PASI',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 64,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: kFontPasi
                   ),
                 ),
               ],
@@ -146,10 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.symmetric(vertical: 16, horizontal: 70),
                 child: Text(
                   "Upload Image",
-                  style: TextStyle(
-                    color: kBackgroundColor,
-                    fontSize: 20,
-                  ),
+                  style: kFontButtonLight
                 ),
               )
             ),
@@ -177,10 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.symmetric(vertical: 16, horizontal: 55),
                   child: Text(
                     "Calculate and Analyse",
-                    style: TextStyle(
-                      color: kColorPrimary,
-                      fontSize: 20,
-                    ),
+                    style: kFontButtonDark
                   ),
                 )
             )
