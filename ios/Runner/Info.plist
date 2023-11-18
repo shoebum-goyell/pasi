@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>PASI uses the camera to take images of your skin</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PASI uses the photo library to upload images of your skin</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PASI uses the microphone to record audio</string>
 </dict>
 </plist>

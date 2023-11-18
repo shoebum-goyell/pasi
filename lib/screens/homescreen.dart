@@ -1,10 +1,35 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
+import 'package:image_picker/image_picker.dart';
 
-
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  File? _image;
+
+  Future getImage() async {
+    try{
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+
+      final imagetemp = File(image.path);
+      setState(() {
+        _image = imagetemp;
+      });
+    }
+    on PlatformException catch (e) {
+      print("Failed to take image");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,12 +110,19 @@ class HomeScreen extends StatelessWidget {
                       color: kColorPrimary,
                       borderRadius: BorderRadius.circular(16),
                     ),
+             child: _image!=null?
+             ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                 child: Image.file(_image!, fit: BoxFit.fill,))
+                 : null
            ),
             SizedBox(
               height: 18,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                getImage();
+              },
               child:Container(
                 decoration: BoxDecoration(
                   color: kColorPrimary,
