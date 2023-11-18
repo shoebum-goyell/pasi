@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pasi/screens/analysis_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   File? _image;
+
+  bool loading = false;
 
   Future getImage() async {
     try{
@@ -56,6 +59,18 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
           currentIndex: 0,
           onTap: (value) {
+            if(value == 0){
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
+            }
+            else if(value == 1){
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const AnalysisScreen()),
+              );
+            }
           },
           items: [
             BottomNavigationBarItem(
@@ -72,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ]))),
       backgroundColor: kBackgroundColor,
-      body: Align(
+      body: loading? Center(child: CircularProgressIndicator(color: kColorPrimary,)) : Align(
         alignment: Alignment.topCenter,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +155,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 18,),
             GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    loading = true;
+                  });
+                  Duration duration = Duration(seconds: 2);
+                  Future.delayed(duration, (){
+                    setState(() {
+                      loading = false;
+                    });
+                  }).then((value) => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AnalysisScreen()),
+                  ));
+                },
                 child:Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: kColorPrimary),
