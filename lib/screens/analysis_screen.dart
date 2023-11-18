@@ -6,6 +6,7 @@ import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pasi/screens/homescreen.dart';
+import 'package:pasi/screens/knowmores_screen.dart';
 
 class AnalysisScreen extends StatefulWidget {
   const AnalysisScreen({super.key});
@@ -174,7 +175,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AnalysisScreen()),
+                    MaterialPageRoute(builder: (context) => const KnowMoreScreen()),
                   );
                 },
                 child:Container(
