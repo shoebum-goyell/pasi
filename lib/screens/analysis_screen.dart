@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:pasi/resources/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pasi/resources/styles.dart';
 import 'package:pasi/screens/homescreen.dart';
+import 'package:pasi/screens/knowmores_screen.dart';
 
 class AnalysisScreen extends StatefulWidget {
   const AnalysisScreen({super.key});
@@ -20,7 +22,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Analysis"),
+        title: Text("Analysis", style:kFontAppBar),
         backgroundColor: kColorPrimary,
       ),
       bottomNavigationBar:
@@ -85,28 +87,28 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 Positioned(
                     top:35,
                     left: 80,
-                    child: Text("60", style: TextStyle(fontSize: 30),)),
+                    child: Text("60", style: kFontScaleLarge,)),
               ],
             ),
             SizedBox(height:4),
-            Text("PASI Score", style: TextStyle(fontSize: 25),),
+            Text("PASI Score", style: kFontPasiScore,),
             SizedBox(height: 12,),
-            Text("Psoriasis Detected", style: TextStyle(color: kColorDarkOrange,fontSize: 30),),
-            SizedBox(height: 15,),
+            Text("Psoriasis Detected", style: kFontDiseaseDetected,),
+            SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 18),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(width: 150, child:
-                  Text("Redness of erythema (0-4)", style: TextStyle(fontSize: 20),)),
+                  Text("Redness of erythema (0-4)", style: kFontParameterTitle,)),
                   Stack(
                     children: [
                       Image.asset('assets/metermax.png', height: 45,),
                       Positioned(
                           top:15,
                           left: 35,
-                          child: Text("3.5", style: TextStyle(fontSize: 15),)),
+                          child: Text("3.5", style: kFontScaleSmall)),
                     ],
                   ),
                 ],
@@ -118,14 +120,14 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(width: 200, child:
-                  Text("Thickness of induration (0-4)", style: TextStyle(fontSize: 20),)),
+                  Text("Thickness of induration (0-4)", style: kFontParameterTitle)),
                   Stack(
                     children: [
                       Image.asset('assets/metermin.png', height: 45,),
                       Positioned(
                           top:15,
                           left: 35,
-                          child: Text("1.3", style: TextStyle(fontSize: 15),)),
+                          child: Text("1.3", style: kFontScaleSmall,)),
                     ],
                   ),
                 ],
@@ -137,14 +139,14 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(width: 200, child:
-                  Text("Scaling of desquamation (0-4)", style: TextStyle(fontSize: 20),)),
+                  Text("Scaling of desquamation (0-4)", style: kFontParameterTitle)),
                   Stack(
                     children: [
                       Image.asset('assets/metermax.png', height: 45,),
                       Positioned(
                           top:15,
                           left: 35,
-                          child: Text("3.7", style: TextStyle(fontSize: 15),)),
+                          child: Text("3.7", style: kFontScaleSmall,)),
                     ],
                   ),
                 ],
@@ -156,14 +158,14 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(width: 200, child:
-                  Text("Area Ratio (0-6)", style: TextStyle(fontSize: 20),)),
+                  Text("Area Ratio (0-6)", style: kFontParameterTitle,)),
                   Stack(
                     children: [
                       Image.asset('assets/metermin.png', height: 45,),
                       Positioned(
                           top:15,
                           left: 35,
-                          child: Text("0.7", style: TextStyle(fontSize: 15),)),
+                          child: Text("0.7", style: kFontScaleSmall,)),
                     ],
                   ),
                 ],
@@ -174,7 +176,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AnalysisScreen()),
+                    MaterialPageRoute(builder: (context) => const KnowMoreScreen()),
                   );
                 },
                 child:Container(
@@ -185,10 +187,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                   child: Text(
                     "Know More",
-                    style: TextStyle(
-                      color: kColorPrimary,
-                      fontSize: 20,
-                    ),
+                    style: kFontButtonDark
                   ),
                 )
             )
